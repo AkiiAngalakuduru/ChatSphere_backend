@@ -23,6 +23,9 @@ app.use(cors({
 }));
 app.use(helmet());
 app.use(express.json());
+app.get('/api/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 const server = http.createServer(app);
 const io = new Server(server, {
